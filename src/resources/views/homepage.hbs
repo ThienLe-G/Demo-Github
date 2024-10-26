@@ -1,0 +1,186 @@
+{{!-- Title Tag SEO --}}
+<head>
+    <title>https://happyminds.onrender.com/</title>
+</head>
+{{!-- Title Meta description Tag--}}
+<head>
+    <meta name="description" content="
+    {{!-- Content of desciption --}}
+    Trang Web tập thể dục chất lượng cao, 
+    nơi bạn có thể truy cập miễn phí và tận hưởng những buổi tập đa dạng, 
+    giúp nâng cao sức khỏe và tinh thần của bạn!.
+">
+</head>
+<header>
+    <a href="https://happyminds.onrender.com/" style="display: none;">https://happyminds.onrender.com/</a>
+</header>
+<link rel="canonical" href="https://happyminds.onrender.com/">
+<h2 class="spanHome text-white"><b>Happy Lives & HappyMinds</b></h2>
+
+<div class="container bg">
+    <div class="row justify-content-lg-between mb-5 ms-5">
+        <div class="col-lg-6 mt-5 col-12">
+            <div class="heading_bmi">
+                <h1>Your BMI</h1>
+            </div>
+            <div class="describe">
+                <p class="des-bmi text-yourBMI">Overrideds on hanging
+                    fruits to identify ball
+                    park value added activity to beta overrided the
+                    digitals divided with additionals clickthroughs
+                    from line.</p>
+            </div>
+            <form action="/homepage/form" id="bmiForm" method="post">
+                <div class="row input1 my-3 gap-3">
+                    <div class="col-lg-5 col-12">
+                        <input class="form-control" type="number" name="height" id="inpHeight"
+                            placeholder="Height / cm" oninput="calculateAndShowBMI()">
+                    </div>
+                    <div class="col-lg-5 col-12 m-lg-0 ">
+                        <input class="form-control" type="number" name="weight" id="inpWeight"
+                            placeholder="Weight / kg" oninput="calculateAndShowBMI()">
+                    </div>
+                </div>
+                <div class="row input2 my-3 gap-3">
+                    <div class="col-lg-5 col-12">
+                        <input class="form-control" type="number" name="bmi" id="bmi" placeholder="Your BMI"
+                            value="{{bmi}}" readonly>
+                    </div>
+                    <div class="col-lg-5 col-12 m-lg-0">
+                        <input class="form-control" type="text" name="weight_status" id="weight_status"
+                            placeholder="Your weight status" value="{{bmi}}" readonly>
+                    </div>
+                </div>
+                {{!-- <div class="submit d-flex justify-content-center justify-content-lg-start">
+                    <button class="btn redColor text-white submit-bmi" style="width:100px ;font-size: 16px;border-radius: 30px;background-color: red;border: none;
+                    " type="submit">Submit</button>
+                </div> --}}
+            </form>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-lg-5 mt-5">
+            <div class="heading">
+                <h1>BMI Chart</h1>
+            </div>
+            <div class="table_bmi mx-2">
+                <div class="row">
+                    <div class="col-lg-5 px-lg-2 bmi-content fist-element" style="border-radius: 30px 0 0 0;">
+                        <p class="text-content-yourBMI">BMI</p>
+                    </div>
+                    <div class="col-lg-5 px-lg-2 bmi-content second-element">
+                        <p class="text-content-yourBMI">WEIGHT STATUS</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 bmi-content">
+                        <p class="text-content-yourBMI">Below 18.5</p>
+                    </div>
+                    <div class="col-lg-5 bmi-content fourth-element">
+                        <p class="text-content-yourBMI">Underweight</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 bmi-content">
+                        <p class="text-content-yourBMI">18.5 - 24.9</p>
+                    </div>
+                    <div class="col-lg-5 bmi-content">
+                        <p class="text-content-yourBMI">Healthy</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 bmi-content">
+                        <p class="text-content-yourBMI">25.0 - 29.9</p>
+                    </div>
+                    <div class="col-lg-5 bmi-content">
+                        <p class="text-content-yourBMI">Overweight</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 text-break bmi-content nine-element ">
+                        <p class="text-content-yourBMI">30.0 - and
+                            Above</p>
+                    </div>
+                    <div class="col-lg-5 bmi-content">
+                        <p class="text-content-yourBMI">Obese</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="content col-lg-11 col-md-10 col-9 text-center mt-5 mb-4">
+            <h3 class="ms-5 ps-5 fw-bold" style="color: #fd0054;">RECOMMENDED EXERCISES FOR YOU</h3>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-lg-2 g-4" style="margin: 0 150px 0 150px;" id="videoContainer">
+        {{#each containsTheFirstFourVideos}}
+        <div class="col mx-lg-auto">
+            <div class="card position-relative">
+                <a href="/video/viewcoach/{{this.BMItype}}" style="color: black; text-decoration: none;">
+                    <img src="{{this.image}}" class="card-img-top" alt="...">
+                    <span type="button" class="btn btn-danger position-absolute top-0 end-0 m-0 rounded-0 px-3 d-inline-block w-50" style="padding-bottom:2.7%;">{{this.BMItype}}</span>
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.title}}</h5>
+                        <div class="d-flex justify-content-between">
+                            <p class="card-text">FEB 12, 2020</p>
+                            <p class="card-text text-danger fw-medium fw-semibold">
+                                MORE INFO
+                                <img class="pb-1" src="./img/goRight.png" alt="">
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="row pt-5">
+        <div class="content col-lg-11 col-md-10 col-9 mt-5 text-center">
+            <h3 class="ms-5 ps-5 fw-bold" style="color: #fd0054;">BLOGS & ARTICLES</h3>
+            <p class="ms-5 ps-5 fw-medium">OUR RECENT ARTICLES</p>
+        </div>
+        <div class="col-lg-1 col-md-2 col-3 d-flex align-items-end justify-content-end pe-4">
+            <form action="/blog">
+                <button type="submit" class="btn btn-outline-danger w-100 fw-medium" style="border-width:2px ;"
+                    id="moreButton">MORE</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="carouselExample" class="carousel">
+        <div class="carousel-inner">
+
+            {{#each blogs}}
+            <div class="carousel-item" style="display: flex; margin-right: 0;">
+                <a href="blog/blogdetail/{{this.slug}}" style="color: black; text-decoration: none;">
+                    <div class="card-slider">
+                        <div class="image-wrapper mb-2 p-2">
+                            <img class="image-slider" src="{{this.image}}" alt="...">
+                        </div>
+                        <div class="card-body card-body-slider p-2 m-1 pt-0">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <p class="card-text card-text-slider">{{this.content}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{/each}}
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev"
+            style="position: absolute; top: 50%; left: -100px;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next"
+            style="position: absolute; top: 50%; right: -100px">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<script src="./js/homepage.js"></script>

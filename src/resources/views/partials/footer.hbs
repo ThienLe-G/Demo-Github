@@ -1,0 +1,62 @@
+<div class='footer'>
+    <div class="row mx-3 gap-2 py-3 justify-content-between ">
+        <div class="col-lg-3 col-12 brand mx-md-3">
+            <a href="/"><img class="mw-100 pb-2" src="http://localhost:3000/img/logo.png" alt=""></a>
+            <p class="message text-light">Healthy Minds, Happy Lives Mental Health Consultancy.</p>
+            <p class="text-white">No.1 in Viet Nam<i class="bi bi-emoji-sunglasses-fill ms-2"></i></p>
+        </div>
+        <div class="col-lg-3 col-5 d-flex flex-column justify-content-center">
+            <h4 class="heading_footer">Service</h4>
+            <ul class="service text-light p-0" style="list-style-type: none">
+                <li class="myLink" id="caculateBmi" onclick="caculateBmi()"><a href="">Caculate BMI</a></li>
+                <li><a href="/food">View Foods</a></li>
+                <li><a href="/video">Watch Exercise</a></li>
+                <li><a href="/blog">Read more Blogs</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-3 col-5 ">
+            <h4 class="heading_footer ">Contact</h4>
+            <ul class="contact text-light p-0" style="list-style-type: none">
+                <li style="cursor: pointer;"><a href="/aboutUs"><i class="bi bi-building-exclamation me-2"></i> About Us
+                </li>
+                </a>
+                <li><a href="" id="myLink1" class="myLink"><i class="bi px-1 bi-telephone-fill"></i> +84 396 139 324</li></a>
+                <li class="" id="myLink2" style="cursor: pointer;"><a href="/" onclick="sendEmail()"><i
+                            class="bi px-1 bi-envelope-fill"></i>
+                        happymindspnv@gmail.com</li></a>
+                <li id="hoverLocation" data-bs-toggle="modal" data-bs-target="#myModal" style="cursor: pointer;"><a
+                        href="" id="myLink3" class="myLink"><i class="bi px-1 bi-geo-alt-fill"></i> Son Tra, Da Nang </li></a>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h4 class="modal-title text-white">HappyMindS's Map</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61332.243770388246!2d108.23389422407533!3d16.103574552542295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142178cae6f1a13%3A0x85e6b1a09ba78527!2zU8ahbiBUcsOgLCDEkMOgIE7hurVuZywgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1705649984946!5m2!1svi!2s"
+                    width="470" height="480" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var elements = document.getElementsByClassName('myLink');
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', function (event) {
+                event.preventDefault();
+            });
+        }
+</script>
+<script src="../../js/homepage.js"></script>

@@ -1,0 +1,143 @@
+{{!-- Title Tag SEO --}}
+
+<head>
+    <title>https://happyminds.onrender.com/</title>
+</head>
+{{!-- Title Meta description Tag--}}
+
+<head>
+    <meta name="description" content="
+    {{!-- Content of desciption --}}
+    Trang Web tập thể dục chất lượng cao,
+    nơi bạn có thể truy cập miễn phí và tận hưởng những buổi tập đa dạng,
+    giúp nâng cao sức khỏe và tinh thần của bạn!.
+">
+</head>
+<header>
+    <a href="https://happyminds.onrender.com/" style="display: none;">BLOGS & ARTICLES</a>
+</header>
+<link rel="canonical" href="https://happyminds.onrender.com/">
+<h3 class="spanBlog text-white"><b>OUR BLOGS & ARTICLES</b></h3>
+<div class="container bg">
+    <div class="row pt-5">
+        <div class="content col-lg-11 col-md-10 col-9 text-center">
+            <h2 class="ms-5 ps-5 fw-bold" style="color: #fd0054;">BLOGS & ARTICLES</h2>
+            <h5 class="ms-5 ps-5 fw-medium">OUR RECENT ARTICLES</h5>
+        </div>
+    </div>
+    <div class="row row-cols-1">
+        <div class="col d-flex justify-content-end">
+            <button type="button" class="btn fs-5 " data-bs-toggle="modal" data-bs-target="#exampleModal"
+                style="background-color: #fd0054; color: white;">New Post</button>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-4 pt-4" id="blogPanigation"></div>
+    <form method="post" action="/blog/create">
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content col-md-10" style="border-radius: 20px 20px 20px 20px;">
+                    <div class="modal-header d-flex justify-content-center"
+                        style="background-color:rgba(253, 0, 84, 1); border-radius: 20px 20px 0 0;">
+                        <h5 class="modal-title text-white" id="exampleModalLabel">What's your mind
+                            ?</h5>
+
+                    </div>
+                    <div class="modal-body ">
+                        <label for="name"><b>Your Name</b></label>
+                        <input class="form-control" name="author" id="name" style="border-radius:10px" required>
+                        <label for="title"><b>Title</b></label>
+                        <input class="form-control" name="title" id="title" style="border-radius:10px" required>
+
+                        <label for="content"><b>Content</b></label>
+                        <textarea class="col-12 form-control text-start" name="content" id="content" rows="8"
+                            style="border-radius:10px;" placeholder="Type what in your mind ..." required></textarea>
+                        <div id="uploadImg">
+                            <label class="col-12 btn btn-outline-secondary mt-2">
+                                Upload your image
+                                <i class="bi bi-upload ms-1"></i>
+                                <input type="file" class="custom-file-input" id="inpImg" style="display:none;">
+                                <input name="image" id="image" style="display: none;">
+                            </label>
+                        </div>
+                        <center>
+                            <p id="uploading_text"></p>
+                        </center>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center border"
+                        style="border-radius: 0 0 20px 20px;">
+                        <button type="button" class="btn btn-secondary" style="width: 200px;" data-bs-dismiss="modal"
+                            aria-label="Close">Cancel</button>
+                        <button type="submit" value="Submit" class="btn btn-danger " style="width: 200px;"
+                            onclick="createBlogs({{isLogin}})">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<center id="btn_controller">
+    <div class="row mb-3">
+        <div class="col d-flex justify-content-end pe-0 m-0">
+            <button type="button" class="btn btn-success" id="currentPage_btn_left"><i
+                    class="bi bi-caret-left-fill"></i></button>
+        </div>
+        <div class="col-1 d-flex justify-content-center">
+            <span class="input-group-text d-flex align-items-center justify-content-center w-100 p-0 fs-5"
+                id="panigation">1/{{totalPages}}</span>
+        </div>
+        <div class="col d-flex justify-content-between ps-0">
+            <button class="btn btn-success" id="currentPage_btn_right"><i class="bi bi-caret-right-fill"></i></button>
+        </div>
+    </div>
+</center>
+
+<div class="">
+    <div class="col d-flex justify-content-end mb-0 me-5" style=" position: fixed; bottom: 27%; right: 1%;">
+        <a href="#">
+            <button class="btn btn-danger fs-4 rounded-3">
+                <i class="bi bi-arrow-up text-light fs-4"></i>
+            </button>
+        </a>
+    </div>
+</div>
+</div>
+<script>
+    const fileInput = document.getElementById('inpImg');
+    const uploading_text = document.getElementById("uploading_text");
+    const cloud_name = "duas1juqs";
+    const upload_preset = "pnvimage";
+    fileInput.addEventListener("change", (e) => {
+        uploading_text.innerText = "Uploading...";
+        document.getElementById("uploadImg").style.display = 'none';
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", upload_preset);
+        const options = {
+            method: "POST",
+            body: formData,
+        };
+        return fetch(
+            `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
+            options
+        )
+            .then((res) => res.json())
+            .then((data) => {
+
+
+                uploading_text.innerHTML = `
+            <br />
+            <img style="max-width:300px" src="${data.secure_url}" alt="">
+            `;
+                document.getElementById("uploadImg").style.display = 'block';
+                document.getElementById('image').value = data.secure_url;
+                console.log(data.secure_url);
+            })
+            .catch((err) => console.log(err));
+    });
+</script>
+<script src="/js/blog.js"></script>
+<script>
+    let allBlogs = {{{ json blogs }}};
+    renderBlogs(allBlogs);
+</script>

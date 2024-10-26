@@ -1,0 +1,96 @@
+<head>
+    {{!-- Title Tag SEO --}}
+    <title>https://happyminds.onrender.com/</title>
+    <meta name="description" content="
+    {{!-- Content of desciption --}}
+    Trang Web tập thể dục chất lượng cao, 
+    nơi bạn có thể truy cập miễn phí và tận hưởng những buổi tập đa dạng, 
+    giúp nâng cao sức khỏe và tinh thần của bạn!.
+">
+</head>
+<header>
+    <a href="https://happyminds.onrender.com/" style="display: none;">https://happyminds.onrender.com/</a>
+</header>
+<link rel="canonical" href="https://happyminds.onrender.com/">
+<div class="header">
+    <div class="row gap-lg-1 mb-4">
+        <div class="col-lg-3 col-12 m-1 my-3 px-1 d-flex justify-content-lg-end justify-content-center">
+            <a href="/homepage"><img class="logo_hpm mw-90 mh-90 " src="http://localhost:3000/img/logo.png" alt=""></a>
+        </div>
+        <div class="col-lg-6 col-12 align-items-center ">
+            <ul class="navbar py-3 p-0 mx-2 my-0 m-lg-0 d-flex " style="list-style-type: none;">
+                <li class="nav-item p-2">
+                    <a href="/" class='nav-link'>HOME</a>
+                </li>
+                <li class="nav-item p-2">
+                    <a href="/video" class='nav-link'>VIDEOS</a>
+                </li>
+                <li class="nav-item p-2">
+                    <a href="/food" class='nav-link'>FOODS</a>
+                </li>
+                <li class="nav-item p-2">
+                    <a href="/blog" class='nav-link'>BLOGS</a>
+                </li>
+                <li class="nav-item p-2">
+                    <a href="/user" class='nav-link' onclick=navUserpage({{isLogin}})>USER</a>
+                </li>
+                <li class="nav-item p-2">
+                    <a href="/aboutUs" class='nav-link'>ABOUT US</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-12 p-0 m-1 mx-0 gap-3 d-flex justify-content-lg-center justify-content-center">
+            <button class=" button_header signInBtn my-3 border-0 py-2 px-3 mt-3" data-bs-toggle="modal"
+                id="loginBtn" onclick=checkLogin()>Log in</button>
+        </div>
+        <div class="modal fade" id="login_form" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Login Form -->
+                    <form action="">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-dark">Login</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <div class="col-12 pb-3 d-flex justify-content-center">
+                                <a href="/login/federated/google"
+                                    class="btn btn-lg btn-block d-flex align-items-center "
+                                    style="background-color:white; border: none" href="#!" role="button">
+                                    <img class="img-fluid me-4" width="20" height="20"
+                                        src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png">
+                                    <span style="color: black;">Log in with Google</span>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<script>
+    if ({{ isLogin }}) {
+        document.querySelector("#loginBtn").innerHTML = "Log out";
+    }
+    function navUserpage(isLogin) {
+        event.preventDefault();
+        if( isLogin )  {
+            window.location.href = "/user"
+        } else $('#login_form').modal('show');
+    }
+    function checkLogin() {
+        if (document.querySelector("#loginBtn").innerHTML == "Log out") {
+            window.location.href = '/logout';
+        } else $('#login_form').modal('show');
+    }
+
+    function checkLoginFood(isLogin){
+        if (isLogin == 'false') {
+            alert("vui lòng đăng nhập");
+            window.location.href = '/food';
+        }
+    }
+</script>

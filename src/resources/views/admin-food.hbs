@@ -1,0 +1,307 @@
+{{!-- CREATE MODEL --}}
+<div style="display: flex; justify-content: end; margin: 12px 0">
+    <button type="button" class="btn btn-primary create_button" data-bs-toggle="modal" data-bs-target="#createModal"
+        data-bs-whatever="@getbootstrap">Create</button>
+
+    <div style="display: flex; justify-content: end; margin: 0 0">
+        <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create Food</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <form method="post" action="/admin/food" id="createForm">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" oninput="clearError(this)" class="form-control" id="nameCreate" name="name" value="">
+                                <small class="text-danger d-none" id="errorNameCreate">Please enter food name !</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="col-form-label">Description:</label>
+                                <input type="text" oninput="clearError(this)" class="form-control" id="descriptionCreate" name="description">
+                                <small class="text-danger d-none" id="errorDescriptionCreate">Please enter food description !</small>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="img" class="col-form-label">Image:</label>
+                                <input type="url" oninput="clearError(this)" class="form-control" id="imgCreate" name="img"></input>
+                                <small class="text-danger d-none" id="errorImgCreate">Please enter food image link !</small>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="categoryCreate" class="col-form-label">Category:</label>
+                                <select class="form-select" id="categoryCreate" name="category">
+                                    <option value="Meat">Meat</option>
+                                    <option value="Seafood">Seafood</option>
+                                    <option value="Fruit">Fruit</option>
+                                    <option value="Vegetable">Vegetable</option>
+                                    <option value="Seeds/Nuts">Seeds/Nuts</option>
+                                    <option value="Strach">Starch</option>
+                                    <option value="Milk">Milk</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="calo" class="col-form-label">Calo:</label>
+                                <input type="number" oninput="clearError(this)" class="form-control" id="caloCreate" name="calo"></input>
+                                <small class="text-danger d-none" id="errorCaloCreate">Please enter the number of calories !</small>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="createButton" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Alltable table-foods">
+    <table class="table table-bordered table-striped table-hover align-middle" style="text-align: center;" id="table_admin">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Calo</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each foods}}
+            <tr>
+                <th>{{this.name}}</th>
+                <th>{{this.description}}</th>
+                <th style="width: 20%;"><img src="{{this.img}}" alt="" style="width: 70%"></th>
+                <th style="width: 5%;">{{this.category}}</th>
+                <th>{{this.calo}}</th>
+                <th width="150px">
+                    {{!-- BUTTON DELETE --}}
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDelete"
+                        data-bs-whatever="@getbootstrap" id="deleteButton" onclick="deleteFood('{{this._id}}')">
+                        <span class="icon-wrapper">
+                            <svg class="icon" width="24px" height="24px" color="white" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6 7V18C6 19.1046 6.89543 20 8 20H16C17.1046 20 18 19.1046 18 18V7M6 7H5M6 7H8M18 7H19M18 7H16M10 11V16M14 11V16M8 7V5C8 3.89543 8.89543 3 10 3H14C15.1046 3 16 3.89543 16 5V7M8 7H16"
+                                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                        </span>
+                    </button>
+                    {{!-- BUTTON UPDATE --}}
+                    <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateModal"
+                        data-bs-whatever="@getbootstrap"
+                        onclick="updateForm('{{this._id}}', '{{this.name}}', '{{this.description}}', '{{this.calo}}', '{{this.img}}','{{this.category}}')">
+                        <span class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24px" height="24px"
+                                color="white" viewBox="0 0 35 35" fill="none">
+                                <path
+                                    d="M32.4431 4.12285C32.6416 4.32201 32.7531 4.59176 32.7531 4.87297C32.7531 5.15419 32.6416 5.42394 32.4431 5.6231L30.2267 7.8416L25.9767 3.5916L28.1931 1.3731C28.3923 1.17391 28.6625 1.06201 28.9443 1.06201C29.226 1.06201 29.4962 1.17391 29.6955 1.3731L32.4431 4.12072V4.12285ZM28.7243 9.34185L24.4743 5.09185L9.99672 19.5716C9.87977 19.6885 9.79172 19.8311 9.7396 19.9881L8.02897 25.1178C7.99795 25.2114 7.99355 25.3117 8.01625 25.4075C8.03896 25.5034 8.08788 25.5911 8.15755 25.6608C8.22722 25.7304 8.3149 25.7794 8.41078 25.8021C8.50665 25.8248 8.60696 25.8204 8.70047 25.7893L13.8302 24.0787C13.987 24.0272 14.1296 23.9399 14.2467 23.8237L28.7243 9.34185Z"
+                                    fill="white" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M2 28.5625C2 29.4079 2.33583 30.2186 2.9336 30.8164C3.53137 31.4142 4.34212 31.75 5.1875 31.75H28.5625C29.4079 31.75 30.2186 31.4142 30.8164 30.8164C31.4142 30.2186 31.75 29.4079 31.75 28.5625V15.8125C31.75 15.5307 31.6381 15.2605 31.4388 15.0612C31.2395 14.8619 30.9693 14.75 30.6875 14.75C30.4057 14.75 30.1355 14.8619 29.9362 15.0612C29.7369 15.2605 29.625 15.5307 29.625 15.8125V28.5625C29.625 28.8443 29.5131 29.1145 29.3138 29.3138C29.1145 29.5131 28.8443 29.625 28.5625 29.625H5.1875C4.90571 29.625 4.63546 29.5131 4.4362 29.3138C4.23694 29.1145 4.125 28.8443 4.125 28.5625V5.1875C4.125 4.90571 4.23694 4.63546 4.4362 4.4362C4.63546 4.23694 4.90571 4.125 5.1875 4.125H19C19.2818 4.125 19.552 4.01306 19.7513 3.8138C19.9506 3.61454 20.0625 3.34429 20.0625 3.0625C20.0625 2.78071 19.9506 2.51046 19.7513 2.3112C19.552 2.11194 19.2818 2 19 2H5.1875C4.34212 2 3.53137 2.33583 2.9336 2.9336C2.33583 3.53137 2 4.34212 2 5.1875V28.5625Z"
+                                    fill="white" />
+                            </svg>
+                        </span>
+                    </button>
+                </th>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{!-- <div class="text-center" id="pagination-buttons"></div> --}}
+</div>
+
+{{!-- UPDATE MODEL --}}
+<div style="display: flex; justify-content: end; margin: 0 0">
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Food</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form method="post" id="updateForm" action="">
+                    <div class="modal-body">
+                        <input type="hidden" class="form-control" id="idUpdate" name="id" value="">
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" oninput="clearError(this)" class="form-control" id="updateName" name="name" value="">
+                            <small class="text-danger d-none" id="errorName">Please enter food name !</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <input type="text" oninput="clearError(this)" class="form-control" id="updateDescription" name="description">
+                            <small class="text-danger d-none" id="errorDescription">Please enter food description !</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="img" class="col-form-label">Image:</label>
+                            <input type="url" oninput="clearError(this)" class="form-control" id="updateImg" name="img"></input>
+                            <small class="text-danger d-none" id="errorImg">Please enter food image link !</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updateCategory" class="col-form-label">Category:</label>
+                            <select class="form-select" id="updateCategory" name="category">
+                                <option value="Meat">Meat</option>
+                                <option value="Seafood">Seafood</option>
+                                <option value="Fruit">Fruit</option>
+                                <option value="Vegetable">Vegetable</option>
+                                <option value="Seeds/Nuts">Seeds/Nuts</option>
+                                <option value="Strach">Starch</option>
+                                <option value="Milk">Milk</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="calo" class="col-form-label">Calo:</label>
+                            <input type="number" oninput="clearError(this)" class="form-control" id="updateCalo" name="calo"></input>
+                            <small class="text-danger d-none" id="errorCalo">Please enter calories</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="updateButton" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- DISPLAY DATA & DELETE--}}
+<script>
+    document.getElementById('updateButton').addEventListener('click', function () {
+        var check = false;
+        document.querySelectorAll('.text-danger').forEach( tag => tag.classList.add('d-none'));
+        var form = document.getElementById('updateForm');
+        var formData = new FormData(form);
+        var data = [...formData];
+        if(data[1][1] == ''){
+            document.getElementById('errorName').classList.remove('d-none');
+            document.getElementById('updateName').classList.add('error');
+            check = true;
+        }
+        if(data[2][1] == ''){
+            document.getElementById('errorDescription').classList.remove('d-none');
+            document.getElementById('updateDescription').classList.add('error');
+            check = true;
+        }
+        if(data[3][1] == ''){
+            document.getElementById('errorImg').classList.remove('d-none');
+            document.getElementById('updateImg').classList.add('error');
+            check = true;
+        }
+        if(data[5][1] == '' || isNaN(data[5][1]) || parseInt(data[5][1]) < 0 ){
+            document.getElementById('errorCalo').classList.remove('d-none');
+            document.getElementById('updateCalo').classList.add('error');
+            check = true;
+        }
+        if (check) {
+            event.preventDefault();
+        }
+        else{
+            const dataObject = {};
+            data.forEach(([key, value]) => {
+                dataObject[key] = value;
+            });
+            
+            axios.post('/admin/admin-food?id=${id}', dataObject)
+            .then(function (response) {
+                user = response.data;
+                BMIchart(user);
+                renderInf();
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+        }
+    });
+
+    document.getElementById('createButton').addEventListener('click', function () {
+        var check = false;
+        var form = document.getElementById('createForm');
+        document.querySelectorAll('.text-danger').forEach( tag => tag.classList.add('d-none'));
+        var formData = new FormData(form);
+        var data = [...formData];
+        if(data[0][1] == ''){
+            document.getElementById('errorNameCreate').classList.remove('d-none');
+            document.getElementById('nameCreate').classList.add('error');
+            check = true;
+
+        }
+        if(data[1][1] == ''){
+            document.getElementById('errorDescriptionCreate').classList.remove('d-none');
+            document.getElementById('descriptionCreate').classList.add('error');
+            check = true;
+        }
+        if(data[2][1] == ''){
+            document.getElementById('errorImgCreate').classList.remove('d-none');
+            document.getElementById('imgCreate').classList.add('error');
+            check = true;
+        }
+        if(data[4][1] == '' || isNaN(data[4][1]) || parseInt(data[4][1]) < 0 ) {
+            document.getElementById('errorCaloCreate').classList.remove('d-none');
+            document.getElementById('caloCreate').classList.add('error');
+            check = true;
+        }
+        if (check) {
+            event.preventDefault();
+        }
+        else{
+            document.getElementById('createForm').submit();
+        }
+    });
+
+    function updateForm(id, name, description, calo, img, category) {
+        document.getElementById('idUpdate').value = id;
+        document.getElementById('updateName').value = name;
+        document.getElementById('updateDescription').value = description;
+        document.getElementById('updateCalo').value = calo;
+        document.getElementById('updateImg').value = img;
+        document.getElementById('updateCategory').value = category;
+
+    }
+    function deleteFood(id) {
+        document.getElementById('deleteForm').action = '/admin/delete-food/' + id;
+    }
+
+    function updateUrlAndReloadPage(page) {
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set('page', page);
+
+        // Thay đổi URL và tải lại trang
+        window.location.href = newUrl.href;
+    }
+
+    function clearError(inputElement) {
+        inputElement.classList.remove('error');
+    }
+
+    function renderPaginationButtons(totalPages) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const page = parseInt(urlParams.get('page')) || 1;
+        const paginationButtons = document.getElementById('pagination-buttons');
+        paginationButtons.innerHTML = '';
+
+        for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement('button');
+            button.textContent = i;
+            button.classList.add('btn');
+            button.classList.add('btn-secondary');
+
+            button.addEventListener('click', () => updateUrlAndReloadPage(i));
+            if (i === page) {
+                button.classList.add('active');
+            }
+            paginationButtons.appendChild(button);
+        }
+    }
+
+    renderPaginationButtons({{{json totalPages}}});
+
+</script>

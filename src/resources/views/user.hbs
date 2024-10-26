@@ -1,0 +1,331 @@
+{{!-- Link Chart --}}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+{{!-- Title Tag SEO --}}
+
+<head>
+    <title>https://happyminds.onrender.com/</title>
+</head>
+{{!-- Title Meta description Tag--}}
+
+<head>
+    <meta name="description" content="
+    {{!-- Content of desciption --}}
+    Trang Web tập thể dục chất lượng cao, 
+    nơi bạn có thể truy cập miễn phí và tận hưởng những buổi tập đa dạng, 
+    giúp nâng cao sức khỏe và tinh thần của bạn!.
+">
+</head>
+<header>
+    <a href="https://happyminds.onrender.com/" style="display: none;">https://happyminds.onrender.com/</a>
+</header>
+<link rel="canonical" href="https://happyminds.onrender.com/">
+<div class="heading">
+    <h2 class="text-danger fw-bold text-center pt-3 pb-3">PROFILE</h2>
+</div>
+<div class="inforBlock bg-light m-5 rounded-3">
+    <div class="avatar row justify-content-center align-items-top">
+        <div class="col-lg-1 d-flex flex-row align-items-top"></div>
+        <div class="col-lg-10 d-flex justify-content-center">
+            <img class="profile_picture rounded-circle border border-dark" id="avatar" style="width: 200px; height: 200px; object-fit: contain;"
+                src="https://media.istockphoto.com/id/1209654046/vi/vec-to/bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-h%E1%BB%93-s%C6%A1-avatar-ng%C6%B0%E1%BB%9Di-d%C3%B9ng-minh-h%E1%BB%8Da-vector-%C4%91en.jpg?s=612x612&w=0&k=20&c=WzylxcP0LLDMfNHs_fSlwoAW8u9tVZNyC704xuV0GZE="
+                alt="profile_picture">
+        </div>
+        <div class="col-lg-1 mh-100 d-flex flex-row align-items-top justify-content-end" style="height: 40px;">
+            <button class="d-flex flex-row align-items-top justify-content-end border-0 bg-light" data-bs-toggle="modal"
+                data-bs-target="#formUpdateModal">
+                <i class="bi bi-pencil-square editIcon fs-3 p-2 pt-0" id="editUser"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="name">
+        <h2 class="text-center m-0 p-0" id="username"></h2>
+    </div>
+
+    {{!-- userModal --}}
+    <div class="modal fade" data-bs-backdrop="static" id="formUpdateModal" tabindex="-1" aria-labelledby="userFormLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-end border-0">
+                    <button class="closeModal m-0 p-0" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x-circle-fill fs-4 iconClose"></i>
+                    </button>
+                </div>
+                <form id="updateForm">
+                    <div class="modal-body border-0">
+                        <div class="avatar row justify-content-center">
+                            <div class="blank col-lg-3"></div>
+                            <div class="col-lg-4 d-flex flex-column align-items-center">
+                                <img class="rounded-circle border border-dark" id="avtInForm" style="width: 160px; height: 160px; object-fit: contain;" alt="profile_picture">
+                                <div class="changeProfilePicture pt-2" id="changePhoto">
+                                    <label class="buttonModal p-1 px-1 d-flex justify-content-center align-items-center"
+                                        style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">
+                                        <i class="bi bi-camera-fill fs-6 "></i>
+                                        <input type="file" id="avtInput" name="photoUrl" class="d-none" onchange=displayImage()>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="blank col-lg-3"></div>
+                        </div>
+                        <div class="changeName mb-2">
+                            <p class="m-0 py-2 fs-5 fw-bold">Fullname: </p>
+                            <input class="formInput col-lg-12 p-2" type="text" name="name" id="nameInput" class=""
+                                placeholder="">
+                        </div>
+                        <div class="row mb-2">
+                            <div class="changeActivityRatios col-lg-6">
+                                <p class="m-0 py-2 fs-5 fw-bold">Activity Ratios: </p>
+                                <select class="formInput col-lg-12 p-2" name="pal" id="palSelection">
+                                    {{#each ActivityStatus}}
+                                    <option value="{{this}}" {{isSelected ../user.pal this}}> {{this}} </option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="changeSex col-lg-6">
+                                <p class="m-0 py-2 fs-5 fw-bold">Sex: </p>
+                                <select class="formInput col-lg-12 p-2" name="sex" id="sexSelection">
+                                    <option value="Male" {{isSelected user.sex 'Male' }}>Male</option>
+                                    <option value="Female" {{isSelected user.sex 'Female' }}>Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="changeInfor row">
+                            <div class="changeHeight col-lg-4">
+                                <p class="m-0 py-2 fs-5 fw-bold">Height (cm): </p>
+                                <input class="formInput col-lg-12 p-2" type="text" name="height" id="heightInput"
+                                    class="" placeholder="Nhập chiều cao ">
+                                <small class="form-text text-danger" id="heightError"></small>
+                            </div>
+                            <div class="changeWeight col-lg-4">
+                                <p class="m-0 py-2 fs-5 fw-bold">Weight (kg): </p>
+                                <input class="formInput col-lg-12 p-2" type="text" name="weight" id="weightInput"
+                                    class="" placeholder="Nhập cân nặng">
+                                <small class="form-text text-danger" id="weightError"></small>
+                            </div>
+                            <div class="changeAge col-lg-4">
+                                <p class="m-0 py-2 fs-5 fw-bold">Age: </p>
+                                <input class="formInput col-lg-12 p-2" type="text" name="age" id="ageInput" class=""
+                                    placeholder="Nhập tuổi">
+                                <small class="form-text text-danger" id="ageError"></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0 d-flex justify-content-center">
+                        <button type="submit" class="buttonModal" onclick=update()>Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="inforBar row p-2 pb-4 mx-2 mb-2 justify-content-center">
+        <div class="firstitem item_inforBar col-lg-2 p-2 d-flex flex-row justify-content-center ">
+            <img src="./img/bmi_logo.png" alt="">
+            <div class="userInfor d-flex flex-column justify-content-center mx-1 fs-1">
+                <h4 class="fs-3 " id="bmi"></h4>
+                <h4 class="fs-3 ">BMI</h4>
+            </div>
+        </div>
+        <div class="item_inforBar col-lg-2 p-2  d-flex flex-row justify-content-center">
+            <img src="./img/height_logo.png" alt="">
+            <div class="userInfor d-flex flex-column justify-content-center mx-1 fs-1">
+                <h4 class="fs-3 " id="height"></h4>
+                <h4 class="fs-3 ">CM</h4>
+            </div>
+        </div>
+        <div class="item_inforBar col-lg-2 p-2  d-flex flex-row justify-content-center">
+            <img src="./img/weight_logo.png" alt="">
+            <div class="userInfor d-flex flex-column justify-content-center mx-1 fs-1">
+                <h4 class="fs-3 " id="weight"></h4>
+                <h4 class="fs-3 ">KG</h4>
+            </div>
+        </div>
+        <div class="item_inforBar col-lg-2 p-2  d-flex flex-row justify-content-center">
+            <img src="./img/age_logo.png" alt="">
+            <div class="userInfor d-flex flex-column justify-content-center mx-1 fs-1">
+                <h4 class="fs-3 " id="age"></h4>
+                <h4 class="fs-3 ">AGE</h4>
+            </div>
+        </div>
+        <div class="lastitem item_inforBar col-lg-2 p-2 px-3 d-flex flex-row justify-content-center ">
+            <img src="./img/calo_logo.png" alt="">
+            <div class="userInfor d-flex flex-column justify-content-center mx-1 fs-1">
+                <h4 class="fs-3 " id="calo"></h4>
+                <h4 class="fs-3 ">CALO</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="chartBMI m-5">
+    <div class="heading_user p-0">
+        <h4 class="fw-bold p-0">BMI CHART</h4>
+    </div>
+    <div class="chart">
+        <canvas id="canvas" style="background-color: white; max-height: 90vh"></canvas>
+    </div>
+</div>
+<div class="courseBMI m-5">
+    <div class="heading_user p-0">
+        <h4 class="fw-bold p-0">COURSES</h4>
+    </div>
+    <div class="courses pt-2">
+        <div class="row row-cols-1 row-cols-lg-3 g-4" style="margin: 0 150px 0 150px;" id="videoContainer">
+            <form action="/video/viewcoach/shortvideos" method="post">
+                <div class="col mx-lg-auto">
+                    <div class="card position-relative">
+                        <img src="{{firstShortVideo.image}}" class="card-img-top" alt="...">
+                        <span class="bg-danger text-light w-50 text-center rounded-0 position-absolute top-0 end-0 m-0"
+                            style="height:9%;">Short Vidoes</span>
+                        <div class="card-body">
+                            <h5 class="card-title"
+                                style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">
+                                {{firstShortVideo.title}}</h5>
+                            <div class="d-flex justify-content-between">
+                                <p class="card-text">FEB 12, 2020</p>
+                                <button class="card-text border-0 bg-white text-danger fw-medium fw-semibold">
+                                    <input type="hidden" name="array" value='{{shortVideosJson}}'>
+                                    MORE INFO
+                                    <img class="pb-1" src="./img/goRight.png" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form action="/video/viewcoach/mediumvideos" method="post">
+                <div class="col mx-lg-auto">
+                    <div class="card position-relative">
+                        <img src="{{firstMediumVideo.image}}" class="card-img-top" alt="...">
+                        <span class="bg-danger text-light w-50 text-center rounded-0 position-absolute top-0 end-0 m-0"
+                            style="height:9%;">Medium Vidoes</span>
+                        <div class="card-body">
+                            <h5 class="card-title">{{firstMediumVideo.title}}</h5>
+                            <div class="d-flex justify-content-between">
+                                <p class="card-text">FEB 12, 2020</p>
+                                <button class="card-text border-0 bg-white text-danger fw-medium fw-semibold">
+                                    <input type="hidden" name="array" value='{{mediumVideosJson}}'>
+                                    MORE INFO
+                                    <img class="pb-1" src="./img/goRight.png" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form action="/video/viewcoach/longvideos" method="post">
+                <div class="col mx-lg-auto">
+                    <div class="card position-relative">
+                        <img src="{{firstLongVideo.image}}" class="card-img-top" alt="...">
+                        <span class="bg-danger text-light w-50 text-center rounded-0 position-absolute top-0 end-0 m-0"
+                            style="height:9%;">Long Vidoes</span>
+                        <div class="card-body">
+                            <h5 class="card-title">{{firstLongVideo.title}}</h5>
+                            <div class="d-flex justify-content-between">
+                                <p class="card-text">FEB 12, 2020</p>
+                                <button class="card-text border-0 bg-white text-danger fw-medium fw-semibold">
+                                    <input type="hidden" name="array" value='{{longVideosJson}}'>
+                                    MORE INFO
+                                    <img class="pb-1" src="./img/goRight.png" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="menu m-5">
+    <div class="heading_user p-0">
+        <h4 class="fw-bold p-0">MENU</h4>
+    </div>
+    <div class="menu_table row">
+        <table class="row">
+            <thead>
+                <tr class="row rounded-top" style="background-color: rgba(253, 0, 84, 1) ; ">
+                    <td class="fw-bold col-lg-11 d-flex align-items-center " style="color: white; ">TODAY</td>
+                    <td class="fw-bold col-lg-1 d-flex justify-content-end  align-items-center p-2">
+                        <button class="border-0 editMenu" data-bs-toggle="modal" data-bs-target="#menuModal">
+                            <i class="bi bi-pencil-square fs-3  pt-0" id="editUser" style="color: white;"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr class="row bg-light p-2 border-bottom border-1 border-dark">
+                    <td class="col-lg-2 text-center fw-bold fs-5 p-0">Name</td>
+                    <td class="col-lg-2 text-center fw-bold fs-5 p-0">Image</td>
+                    <td class="col-lg-2 text-center fw-bold fs-5 p-0">Calo/100g</td>
+                    <td class="col-lg-2 text-center fw-bold fs-5 p-0">Amount</td>
+                    <td class="col-lg-2 text-center fw-bold fs-5 p-0">Total calories</td>
+                    <td class="col-lg-2 text-center fw-bold fs-5 p-0">Category</td>
+                </tr>
+            </thead>
+            <tbody id="foodMenu">
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div class="modal fade" data-bs-backdrop="static" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-light" style="background-color: rgba(253, 0, 84, 1);">
+                <h5 class="modal-title" id="menuModalLabel">MY MENU</h5>
+                <button class="border-0" data-bs-dismiss="modal" aria-label="Close"
+                    style="background-color: rgba(253, 0, 84, 1); color: white"><i
+                        class="bi bi-x-circle-fill fs-4"></i></button>
+            </div>
+            <div class="modal-body pb-0">
+                <table class=" border border-2 ">
+                    <thead>
+                        <tr class="text-center fw-bold justify-content-center "
+                            style="background-color:rgb(216, 214, 214);">
+                             <td style="width: 200px; height: 40px;">Name</td>
+                            <td style="width: 150px; height: 40px;">Calo/100g(calo)</td>
+                            <td style="width: 150px; height: 40px;">Amount(g)</td>
+                            <td style="width: 150px; height: 40px;">Total calo</td>
+                            <td style="width: 100px; height: 40px;">Remove</td>
+                        </tr>
+                    </thead>
+                    <tbody id="modalMenu">
+                    </tbody>
+                </table>
+                <div class="line mt-4 my-2" style="height: 2px; background-color: rgb(211, 211, 211);"></div>
+                <div class="totalMenu">
+                    <div class="row justify-content-between pb-1">
+                        <div class="col-lg-3 fw-semibold" style="font-size: 18px;">Items </div>
+                        <div class="col-lg-3 fw-semibold d-flex justify-content-end" style="font-size: 18px;"
+                            id="totalItems"></div>
+                    </div>
+                    <div class="row justify-content-between pb-1">
+                        <div class="col-lg-4 fw-semibold" style="font-size: 18px;">Your required calories </div>
+                        <div class="col-lg-3 fw-semibold d-flex justify-content-end" style="font-size: 18px;"
+                            id="requiredCalories"> {{user.requiredCaloriesAmount}} calo
+                        </div>
+                    </div>
+                    <div class="row justify-content-between pb-1">
+                        <div class="col-lg-3 fw-semibold" style="font-size: 18px;">Total calories today</div>
+                        <div class="col-lg-3 fw-semibold d-flex justify-content-end" style="font-size: 18px;"
+                            id="totalCalories">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/user.js"></script>
+<script>
+    if(!{{{ isLogin }}}) {
+        alert('Vui lòng đăng nhập!');
+        location.href = '/';
+    }
+    let user = {{{ json user }}}
+    let foods = {{{ json foods }}}
+    renderInf();
+    const canvas = document.getElementById('canvas');
+    let chart;
+    BMIchart(user);
+    renderFoodMenu(foods);
+</script>

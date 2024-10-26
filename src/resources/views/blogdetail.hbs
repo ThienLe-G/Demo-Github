@@ -1,0 +1,142 @@
+{{!-- Title Tag SEO --}}
+
+<head>
+    <title>https://happyminds.onrender.com/</title>
+</head>
+{{!-- Title Meta description Tag--}}
+
+<head>
+    <meta name="description" content="
+    {{!-- Content of desciption --}}
+    Trang Web tập thể dục chất lượng cao, 
+    nơi bạn có thể truy cập miễn phí và tận hưởng những buổi tập đa dạng, 
+    giúp nâng cao sức khỏe và tinh thần của bạn!.
+">
+</head>
+<header>
+    <a href="https://happyminds.onrender.com/" style="display: none;"></a>
+</header>
+<link rel="canonical" href="https://happyminds.onrender.com/">
+<h3 class="spanBlog text-white"><b>OUR BLOGS & ARTICLES</b></h3>
+<div class="container bg-white">
+    <div class="d-flex flex-row gap-5 d-flex align-items-center md-5">
+        <h4 class="fs-4 text-primary col-lg-3 col-md-3 mb-0">{{blog.updatedAt}}</h4>
+        <div class=" col-lg-8 col-md-8 d-flex justify-content-end">
+            <img class="col-lg-4 col-1 mt-4 my-2 rounded-circleborder border-dark" style="width: 48px; height: 45px" src="https://media.istockphoto.com/id/1196083861/vi/vec-to/b%E1%BB%99-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-%C4%91%E1%BA%A7u-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-%C4%91%C6%A1n-gi%E1%BA%A3n.jpg?s=612x612&w=0&k=20&c=7juGotIovn0c2KFGhZ_DcEqpfiSyYl-zz2ty9XYnYNs=" alt>
+            <p class="fs-5 m-0 d-flex align-items-center mt-4 mx-2">{{blog.author}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class=" col-lg-8 col-8 mb-2">
+            <h2 class="text-lg-start fw-bold">{{blog.title}}</h2>
+        </div>
+    </div>
+    <img class="col-lg-12m col-12 mb-lg-12 rounded-2 " src="{{blog.image}}" alt>
+
+    <!-- body -->
+    <center>
+        <p class="col-lg-10 col-md-12 mt-3">{{blog.content}}</p>
+        <hr style="height: 10px;width:70%" class="mt-5 ">
+    </center>
+
+    <div class="d-flex justify-content-between align-items-around">
+        <div></div>
+        <div></div>
+        <button class="btn-outline-danger btn d-flex align-items-center" id="like_{{blog._id}}"
+            onclick="handleLikeBtn({{isLogin}}, '{{blog._id }}', 'blog')">
+            <i class="bi bi-heart"></i>
+            <p class="m-0 ms-1"><b>Like</b></p>
+        </button>
+        <button class="btn btn-outline-secondary d-flex align-items-center " id="commentBtn">
+            <i class="bi bi-chat-dots"></i>
+            <label class="ms-1 m-0" for="commentInp"><b>Comment</b></label>
+        </button>
+
+        <button class="btn btn-outline-primary d-flex align-items-center" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+            <i class="bi bi-share me-1"></i>
+            <p class="m-0"><b>Share</b>
+        </button>
+        <div></div>
+        <div></div>
+    </div>
+    {{!-- Comment --}}
+    <div class="row d-flex justify-content-center pb-4">
+        <div class="card mt-4 col-9 pb-1 mb-4">
+            <div class="card-body ">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <img class="rounded-circle" id="userAvt"
+                            src="https://media.istockphoto.com/id/1196083861/vi/vec-to/b%E1%BB%99-bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-%C4%91%E1%BA%A7u-ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-%C4%91%C6%A1n-gi%E1%BA%A3n.jpg?s=612x612&w=0&k=20&c=7juGotIovn0c2KFGhZ_DcEqpfiSyYl-zz2ty9XYnYNs="
+                            alt="Profile Picture" style="width: 30px; height: 30px; object-fit: contain;">
+                    </div>
+                    <div class="col p-0">
+                        <h6 class="mb-0 p-0">You</h6>
+                    </div>
+                    <div class="col-10"></div>
+                    <div class="col-auto pe-2" onclick=cancelComment("commentInp")>
+                        <button class="btn btn-outline-danger">
+                            <i class="bi bi-x-circle-fill"></i>
+                        </button>
+                    </div>
+                </div>
+                <form id="commentForm" class="row mt-3 commentForm">
+                    <div class="col-10 pe-2">
+                        <input type="text" class="form-control" name="content" id="commentInp"
+                            placeholder="Nhập bình luận của bạn . . .">
+                        <input type="hidden" id="hiddenInput" name="blogId" value="{{blog._id}}">
+                    </div>
+                    <div class="col d-flex align-items-center">
+                        <div class="row justify-content-between">
+                            <label class="col px-4 btn btn-outline-secondary">
+                                <i class="bi bi-upload"></i>
+                                <input type="file" name="imgUrl" style="display: none;" onchange="displayImage('imageInp')">
+                            </label>
+                            <button class="col px-4 btn btn-primary ms-2"
+                                onclick=submitComment({{isLogin}},"commentForm")>
+                                <i class="bi bi-send"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="m-3">
+                        <img id="imageInp" src="" alt="updation Image"
+                            style="max-width: 300px; max-height: 300px; display: none;">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{!-- commet list --}}
+    <div class="row d-flex justify-content-center pb-4" id="commentList"></div>
+    {{!-- Model Share post --}}
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-md-10" style="border-radius: 20px 20px 20px 20px;">
+                <div class="modal-header d-flex justify-content-center"
+                    style="background-color:rgba(253, 0, 84, 1); border-radius: 20px 20px 0 0;">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Click To Copy</h5>
+
+                </div>
+                <div class="modal-body ">
+                    <input class="form-control" name="" id="linkPost" style="border-radius:10px;text-align: center;"
+                        readonly placeholder="" onclick="sharePost()">
+                </div>
+                <div class="modal-footer d-flex justify-content-center border" style="border-radius: 0 0 20px 20px;">
+                    <button type="button" class="btn btn-secondary" style="width: 200px;" data-bs-dismiss="modal"
+                        aria-label="Close">Cancel</button>
+                    <button type="button" class="btn btn-danger " style="width: 200px;"
+                        onclick="sharePost()">Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/blogDetail.js"></script>
+<script>
+    var blogId = {{{ json blog._id }}};
+    var likedList = {{{ json blog.likedList }}};
+    checkUserLiked({{ isLogin }}, likedList, blogId);
+    renderComments(blogId, {{ isLogin }});
+</script>

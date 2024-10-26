@@ -1,0 +1,79 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal" data-bs-whatever="@getbootstrap">Create</button>
+
+<div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">New User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <form method="post" action="/admin/video">
+      <div class="modal-body">
+          <div class="mb-3">
+            <label for="title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="title" name="title">
+          </div>
+          <div class="mb-3">
+            <label for="caloriesAmount" class="col-form-label">Calories amount:</label>
+            <input type="number" class="form-control" id="caloriesAmount" name="caloriesAmount">
+          </div>
+          <div class="mb-3">
+            <label for="videoId" class="col-form-label">Video ID:</label>
+            <input type="text" class="form-control" id="videoId" name="videoId"></input>
+          </div>
+          <div class="mb-3">
+            Level: 
+          <div class="btn-group" role="group">
+            <input type="radio" class="btn-check" name="level" id="level1" value="beginner" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="level1">Beginner</label>
+
+            <input type="radio" class="btn-check" name="level" id="level2" value="medium" autocomplete="off">
+            <label class="btn btn-outline-primary" for="level2">Medium</label>
+
+            <input type="radio" class="btn-check" name="level" id="level3" value="advance" autocomplete="off">
+            <label class="btn btn-outline-primary" for="level3">Advance</label>
+          </div>
+          </div>
+          <div class="mb-3">
+
+            Category: 
+          <div class="btn-group" role="group">
+            <input type="radio" class="btn-check" name="category" id="legs" value="legs" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="legs">Legs</label>
+
+            <input type="radio" class="btn-check" name="category" id="abs" value="abs" autocomplete="off">
+            <label class="btn btn-outline-primary" for="abs">Abs</label>
+
+            <input type="radio" class="btn-check" name="category" id="chest" value="chest" autocomplete="off">
+            <label class="btn btn-outline-primary" for="chest">Chest</label>
+
+            <input type="radio" class="btn-check" name="category" id="arms" value="arms" autocomplete="off">
+            <label class="btn btn-outline-primary" for="arms">Arms</label>
+
+            <input type="radio" class="btn-check" name="category" id="shoulder" value="shoulder" autocomplete="off">
+            <label class="btn btn-outline-primary" for="shoulder">Shoulder</label>
+            </div>
+          </div>
+          <div class="mb-3">
+
+            Sex: 
+            <div class="btn-group" role="group">
+            <input type="radio" class="btn-check" name="sex" id="male" value="male" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="male">Male</label>
+
+            <input type="radio" class="btn-check" name="sex" id="female" value="female" autocomplete="off">
+            <label class="btn btn-outline-primary" for="female">Female</label>
+
+            <input type="radio" class="btn-check" name="sex" id="sex3" value="both" autocomplete="off">
+            <label class="btn btn-outline-primary" for="sex3">Both</label>
+          </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+        </form>
+    </div>
+  </div>
+</div>

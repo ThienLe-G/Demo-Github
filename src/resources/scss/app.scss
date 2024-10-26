@@ -1,0 +1,621 @@
+ @import 'variables';
+
+ .level,
+ .more {
+     color: $red;
+     font-weight: 600;
+     font-size: 15px;
+ }
+
+ .level {
+     font-size: 18px;
+     border: 2px solid $red;
+ }
+
+ .more {
+     font-size: 15px;
+ }
+
+ .duration,
+ .description {
+     font-size: 12px;
+     margin: 0;
+ }
+
+ .description {
+     white-space: nowrap;
+ }
+
+ a {
+     text-decoration: none;
+     color: inherit;
+     cursor: pointer;
+     margin: 0;
+     padding: 0;
+ }
+
+ a:hover {
+     color: $red
+ }
+
+
+ // --------------------------------------------FOOD---------------------------------------------------------//
+ body {
+     background-color: $background;
+ }
+
+ .form-custom {
+     position: relative;
+ }
+
+ /* =---------------------- Your BMI - BMI CHART -------------------------------------- */
+ .text-yourBMI {
+     font-size: 22px;
+     font-family: "Lato";
+     color: rgba(106, 106, 106, 1);
+ }
+
+ .bmi-content {
+     margin-left: 2px;
+     margin-bottom: 2px;
+     background-color: $red;
+     text-align: center;
+     white-space: nowrap;
+ }
+
+ .text-content-yourBMI {
+     padding-top: 10px;
+     color: white;
+ }
+
+ /* =---------------------- Your BMI - BMI CHART END -------------------------------------- */
+
+
+
+ /* ---------------------------------SLIDER------------------------------------------------- */
+
+ .image-wrapper {
+     max-width: 100%;
+     height: 17em;
+     display: flex;
+     justify-content: center;
+ }
+
+ .image-slider {
+     max-width: 100%;
+     max-height: 100%;
+ }
+
+ @media (min-width: 992px) {
+     .carousel-inner {
+         display: flex;
+     }
+
+     .carousel-item {
+         margin-right: 0;
+         flex: 0 0 calc(100%/3);
+         display: block;
+     }
+
+     .image-wrapper {
+         height: 23vw;
+     }
+
+     .card-text-slider {
+         max-height: 50px;
+     }
+ }
+
+ .carousel-inner {
+
+     padding: 1em;
+ }
+
+ .card-slider {
+     margin: 0 .5em;
+     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+     border: none;
+ }
+
+ .card-text-slider {
+     max-height: 50px;
+     overflow: hidden;
+ }
+
+
+ .carousel-control-prev,
+ .carousel-control-next {
+     background-color: #e1e1e1;
+     width: 6vh;
+     height: 6vh;
+     border-radius: 50%;
+     top: 50%;
+     transform: translateY(-50%);
+     opacity: .5;
+ }
+
+ .carousel-control-prev :hover,
+ .carousel-control-next {
+     opacity: .8;
+ }
+
+ /* ---------------------------------SLIDER------------------------------------------------- */
+
+ .admin_heading {
+     background-image: url('/img/bg_heading.png');
+     background-size: cover;
+     background-repeat: no-repeat;
+ }
+
+ .logo_admin {
+     width: 30px;
+     height: 32px;
+ }
+
+ .hpm {
+     font-size: 20px;
+     font-weight: 700;
+ }
+
+ .admin_header>li {
+     font-weight: 700;
+     border-color: $red ;
+ }
+
+ .logout {
+     color: white;
+     background-color: $red;
+     font-weight: 700;
+ }
+
+ .footer {
+     background-color: rgba(43, 32, 36, 1);
+ }
+
+ .heading_footer {
+     color: $red;
+ }
+
+ .header {
+     background-image: url('/img/bg.png');
+     height: 500px;
+     color: white;
+     background-size: cover;
+     background-repeat: no-repeat;
+     margin: 0;
+     opacity: 1;
+ }
+
+ .nav-item>a {
+     text-decoration: none;
+ }
+
+ .nav-item {
+     font-size: 20px;
+     font-weight: 700;
+     border-bottom: 3px solid rgba(253, 0, 84, 0);
+ }
+
+ .nav-item:hover {
+     border-bottom: 3px solid $red;
+     color: $red;
+ }
+
+ .nav-item:focus {
+     border-bottom: 3px solid $red !important;
+     color: $red;
+ }
+
+ .redColor {
+     background-color: $red !important;
+ }
+
+ .whiteColor {
+     color: white;
+ }
+
+ .text-red {
+     color: $red;
+ }
+
+ .button_header {
+     background-color: $red;
+     color: white;
+     font-weight: 500;
+     border-radius: 20px;
+ }
+
+ .user_icon {
+     width: 40px;
+ }
+
+ h2 {
+     color: #000000;
+ }
+
+ .service,
+ .contact {
+     line-height: 30px;
+ }
+
+ .form .bi-search {
+     position: absolute;
+     font-size: 1.5rem;
+     top: 9px;
+     left: 15px;
+     color: #9ca3af;
+ }
+
+ .form span .bi-search {
+     position: absolute;
+     font-size: 1.5rem;
+     right: 15px;
+     top: 9px;
+     padding: 2px;
+     color: #9ca3af;
+     cursor: pointer;
+ }
+
+ .left-pan {
+     padding: 7px;
+ }
+
+ .left-pan i {
+     padding-left: 10px;
+ }
+
+ .form-input {
+     height: 55px;
+     text-indent: 20px;
+     border-radius: 15px;
+     background-color: white;
+ }
+
+ .form-input :focus {
+     box-shadow: none;
+     border: none;
+ }
+
+
+ .card-content {
+     border-radius: 20px;
+
+ }
+
+ .rounded-image {
+     border-radius: 20px;
+     max-width: 85%;
+     max-height: 85%;
+ }
+
+ .card-body-text {
+     padding: auto;
+ }
+
+ .btn-custom {
+     border-radius: 20px;
+ }
+
+ .service,
+ .contact {
+     line-height: 30px;
+ }
+
+ .inforUser,
+ .updateForm,
+ .inforForm,
+ .foodHistory,
+ .videoHistory,
+ .listVideo,
+ .bg {
+     background-color: $background;
+ }
+
+ .card-content {
+     border-radius: 20px;
+
+ }
+
+ .rounded-image {
+     border-radius: 20px;
+     max-width: 85%;
+     max-height: 85%;
+ }
+
+ // ::-webkit-scrollbar {
+ //     display: none;
+ // }
+
+ /* ---------------------------------CARD_BLOG------------------------------------------------- */
+ .card-blog {
+     max-height: 40px;
+     overflow: hidden;
+ }
+
+ .content-text-blog {
+     height: 50px;
+     overflow: hidden;
+ }
+
+ .nhatngu {
+     color: rgba(22, 22, 26, 0.18)
+ }
+
+ /* ---------------------------------FOOD_UPGRADE UI------------------------------------------------- */
+ .searchIcon {
+     padding: 20px 0px;
+ }
+
+ .clearIcon {
+     padding: 10px 0px;
+ }
+
+ .searchInput {
+     padding: 0px 290px 0px 0px;
+     color: #9ca3af
+ }
+
+ .searchBtn,
+ .clearBtn {
+     border: none;
+     outline: none;
+     background-color: white;
+     color: #9ca3af;
+ }
+
+ .foodBtn {
+     border: 2px solid rgba(253, 0, 84, 1);
+     outline: none;
+     padding: 3px 15px;
+     background-color: white;
+     color: rgba(253, 0, 84, 1);
+     font-weight: 600;
+     border-radius: 25px;
+ }
+
+ .sortBtn {
+     border: none;
+
+ }
+
+ .bi-arrow-down-up {
+     font-weight: bold !important;
+ }
+
+ .menuBtn {
+     border: none;
+     outline: none;
+     background-color: rgba(253, 0, 84, 1);
+     color: white;
+     padding: 0px 15px;
+     border-radius: 15px;
+     font-size: 18px;
+     font-weight: 500;
+ }
+
+ .thead {
+     height: 45px;
+     width: 800px;
+     background-color: #e7e7e7;
+     border-radius: 10px;
+     font-weight: 500;
+     font-size: 17px;
+     position: relative;
+     left: 22px;
+ }
+
+ .cellHead {
+     width: 150px;
+     height: 45px;
+     border-right: 1px solid rgb(178, 178, 178);
+ }
+
+ .cellTbl {
+     width: 150px;
+     height: 100px;
+     border-right: 1px solid rgb(178, 178, 178);
+ }
+
+ .nameFood {
+     width: 150px;
+ }
+
+ .ipWeight {
+     width: 180px;
+ }
+
+ .lastCell {
+     border-right: none;
+     width: 60px;
+ }
+
+ .rowTbl {
+     background-color: white;
+     width: 845px;
+     border-radius: 10px;
+     height: 100px;
+     font-weight: 500;
+ }
+
+ .iconHeart {
+     padding-left: 5px;
+     border-right: 1px solid rgb(178, 178, 178);
+     cursor: pointer;
+ }
+
+ .heart[data-isdisable='false'] {
+     color: rgba(253, 0, 84, 1);
+ }
+
+ .heart[data-isdisable='true'] {
+     color: white;
+ }
+
+ #add2Menu {
+     cursor: pointer;
+ }
+
+ .menuRow {
+     width: 200px;
+     height: 40px;
+ }
+
+
+
+ /* ---------------------------------UPGREADE USER UI------------------------------------------------- */
+ .profile_picture {
+     position: relative;
+     top: -40px;
+ }
+
+ .editIcon {
+     color: rgba(253, 0, 84, 1);
+ }
+
+ #username {
+     position: relative;
+     top: -20px;
+ }
+
+ .firstitem {
+     border-top-left-radius: 20px;
+     border-bottom-left-radius: 20px;
+ }
+
+ .item_inforBar {
+     background-color: #e1e1e1;
+     border-right: 1px solid black;
+ }
+
+ .lastitem {
+     border-top-right-radius: 20px;
+     border-bottom-right-radius: 20px;
+     border-right: none;
+ }
+
+ .heading_user {
+     color: rgba(253, 0, 84, 1);
+ }
+
+ .editMenu {
+     background-color: rgba(253, 0, 84, 1);
+ }
+
+ .closeModal {
+     background-color: white;
+     border: none;
+
+ }
+
+ .iconClose::before {
+     color: rgba(253, 0, 84, 1);
+ }
+
+ #changePhoto {
+     position: relative;
+     top: -35px;
+     left: 40px;
+ }
+
+ .buttonModal {
+     background-color: rgba(253, 0, 84, 1);
+     color: white;
+     border: none;
+     border-radius: 5px;
+     padding: 10px;
+ }
+
+ .formInput {
+     background-color: #cacbcb;
+     color: black;
+     border: none;
+     border-radius: 5px;
+     padding: 10px;
+     outline: none;
+ }
+
+ .list-group-item-action.active {
+     background-color: rgba(253, 0, 84, 1);
+     color: #ffffff;
+     border-radius: 0.2rem;
+     border: none;
+ }
+
+ // Hidden text content > 3 line
+ .content_cell {
+     display: -webkit-box;
+     -webkit-line-clamp: 4;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+
+ /* ---------------------------------ADMIN FOOD------------------------------------------------- */
+ .error {
+     border-color: red;
+     box-shadow: 0 0 5px red;
+ }
+
+ /* ---------------------------------Span all------------------------------------------------- */
+ .spanBlog {
+     position: absolute;
+     top: 26% !important;
+     left: 38% !important;
+ }
+
+ .spanUs {
+     position: absolute;
+     top: 25% !important;
+     left: 22% !important;
+ }
+
+ .spanHome {
+     position: absolute;
+     top: 24% !important;
+     left: 38% !important;
+ }
+
+ .spanFood {
+     position: absolute;
+     top: 25% !important;
+     left: 47% !important;
+ }
+
+ .spanVideo {
+     position: absolute;
+     top: 25% !important;
+     left: 50% !important;
+ }
+
+ /* ---------------------------------About us------------------------------------------------- */
+ .bannerUs {
+     position: relative;
+ }
+
+ .spanBaner {
+     position: absolute;
+     top: 47%;
+     left: 28%;
+ }
+
+ .imgBaner {
+     width: 1320px;
+ }
+
+ #bannerPnv {
+     background-color: rgba(0, 0, 0, 0.5);
+ }
+
+ #white-background {
+     background-color: #ffffff !important;
+     padding: 20px !important;
+ }
+
+ .cofounder {
+     transition: transform 0.3s ease;
+     will-change: transform;
+ }
+
+ .cofounder:hover {
+     transform: scale(1.04);
+ }

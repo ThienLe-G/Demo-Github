@@ -1,0 +1,59 @@
+<div class="Alltable table-blog">
+    <table class="table table-bordered table-striped table-hover align-middle" style="text-align: center;"
+        id="table_admin">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Blog id</th>
+                <th>Content</th>
+                <th>Image</th>
+                <th>User id</th>
+                <th>Parent id</th>
+                <th>Response Times</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="commentList">
+
+        </tbody>
+    </table>
+</div>
+
+{{!-- UPDATE MODEL --}}
+<div style="display: flex; justify-content: end; margin: 0 0">
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Comment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" id="updateForm" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="updateContent" class="col-form-label">Content:</label>
+                            <input type="text" class="form-control" id="updateContent" name="content" value="">
+                            <input type="hidden" name="id" id="id">
+                        </div>
+                        <div class="mb-3">
+                            <label for="image">Image:</label>
+                            <br>
+                            <input type="file" id="updateImg" name="imgUrl" onchange="displayImage()">
+                            <img id="previewImage" src="" alt="updation Image"
+                                style="max-width: 300px; max-height: 300px; display: none;">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="handleUpdateForm()">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/admin-comment.js"></script>
+<script> 
+    var comments = {{{ json comments }}}
+    renderComments(comments)
+</script>

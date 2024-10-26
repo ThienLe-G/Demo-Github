@@ -1,0 +1,511 @@
+<h3 class="spanVideo text-white"><b>OUR EXERCISE</b></h3>
+
+<div class="container page" id="content">
+    <div class="intro_video text-center d-f lex flex-column align-items-center py-4 pt-5" style="margin-left: 200px;">
+        <h3 style="color:$red;">RECOMMENDED EXERCISES FOR YOU</h3>
+        <p style="font-size: 16px; font-weight: 500;">BUILD YOUR BODY WITH<br>OUR EXERCISE</p>
+    </div>
+    <div class="row">
+        <div id="menu-video"
+            class="col-lg-1 navbar navbar-light bg-light d-none d-lg-flex flex-column align-items-stretch h-100 rounded-2 list-group list-group-flush" style="position: sticky; top:0; left: 10px;">
+            <a href="#" class="text-center fw-bold">MENU</a>
+            <hr class="border border-dark border-2">
+            <a class="list-group-item bg-danger text-center p-1" href="#level_1">Level 1</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level1Arms">Arms</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level1Abs">Abs</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level1Shoulder">Shoulder</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level1Chest">Chest</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level1Legs">Legs</a>
+
+            <a class="list-group-item bg-danger text-center p-1" href="#level_2">Level 2</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level2Arms">Arms</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level2Abs">Abs</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level2Shoulder">Shoulder</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level2Chest">Chest</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level2Legs">Legs</a>
+
+            <a class="list-group-item bg-danger text-center p-1" href="#level_3">Level 3</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level3Arms">Arms</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level3Abs">Abs</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level3Shoulder">Shoulder</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level3Chest">Chest</a>
+            <a class="list-group-item list-group-item-action p-1 mt-1 text-center" href="#level3Legs">Legs</a>
+        </div>
+
+        <div class="col-lg-11 col-12 p-0" data-bs-spy="scroll" data-bs-target="#menu-video" data-bs-offset="0" tabindex="0">
+            <div class="level_block mx-md-5 mx-3 my-md-3 my-2 w-100">
+                <div class="row justify-content-center mx-5 ">
+                    <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center mb-4 my-2 px-0"
+                        id="level_1">LEVEL 1</p>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level1Arms">Arms
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level1-Arms" method="post">
+                                <input type="hidden" name="array" value='{{arms1}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each armsLevel_1}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                                <div class="card-body">
+                                    <p class="card-text">{{this.title}}</p>
+                                </div>
+                            </a>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level1Abs">Abs
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level1-Abs" method="post">
+                                <input type="hidden" name="array" value='{{abs1}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each absLevel_1}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level1Shoulder">
+                            Shoulder</p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level1-Shoulder" method="post">
+                                <input type="hidden" name="array" value='{{shoulder1}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each shoulderLevel_1}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level1Chest">Chest
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level1-Chest" method="post">
+                                <input type="hidden" name="array" value='{{chest1}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each chestLevel_1}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level1Legs">Legs
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level1-Legs" method="post">
+                                <input type="hidden" name="array" value='{{legs1}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each legsLevel_1}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="level_block mx-md-5 mx-3 my-md-3 my-2 w-100">
+                <div class="row justify-content-center mx-5 ">
+                    <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                        id="level_2">
+                        LEVEL 2</p>
+                    <div class="col-md-5 col-5 m-1 more d-md-none d-flex justify-content-end align-items-center px-0">
+                        SEE MORE</div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level2Arms">Arms
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level2-Arms" method="post">
+                                <input type="hidden" name="array" value='{{arms2}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each armsLevel_2}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level2Abs">Abs
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level2-Abs" method="post">
+                                <input type="hidden" name="array" value='{{abs2}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each absLevel_2}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level2Shoulder">
+                            Shoulder</p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level2-Shoulder" method="post">
+                                <input type="hidden" name="array" value='{{shoulder2}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each shoulderLevel_2}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level2Chest">Chest
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level2-Chest" method="post">
+                                <input type="hidden" name="array" value='{{chest2}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each chestLevel_2}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level2Legs">Legs
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level2-Legs" method="post">
+                                <input type="hidden" name="array" value='{{legs2}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each legsLevel_2}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="level_block mx-md-5 mx-3 my-md-3 my-2 w-100">
+                <div class="row justify-content-center mx-5 ">
+                    <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                        id="level_3">
+                        LEVEL 3</p>
+                    <div class="col-md-5 col-5 m-1 more d-md-none d-flex justify-content-end align-items-center px-0">
+                        SEE MORE</div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level3Arms">Arms
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level3-Arms" method="post">
+                                <input type="hidden" name="array" value='{{arms2}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each armsLevel_2}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level3Abs">Abs
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end  my-2 px-0">
+                            <form action="/video/viewcoach?type=Level3-Abs" method="post">
+                                <input type="hidden" name="array" value='{{abs2}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each absLevel_2}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level3Shoulder">
+                            Shoulder</p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end my-2 px-0">
+                            <form action="/video/viewcoach?type=Level3-Shoulder" method="post">
+                                <input type="hidden" name="array" value='{{shoulder2}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each shoulderLevel_2}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level3Chest">Chest
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end my-2 px-0">
+                            <form action="/video/viewcoach?type=Level3-Chest" method="post">
+                                <input type="hidden" name="array" value='{{chest2}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each chestLevel_2}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="listVideo p-3 mb-3 rounded-2">
+                    <div class="row justify-content-between mx-5 ">
+                        <p class="level col-md-2 col-5 d-flex justify-content-center align-items-center my-2 px-0"
+                            id="level3Legs">Legs
+                        </p>
+                        <div class="col-lg-2 col-md-2 col-3 d-flex align-items-end justify-content-end my-2 px-0">
+                            <form action="/video/viewcoach?type=Level3-Legs" method="post">
+                                <input type="hidden" name="array" value='{{legs2}}'>
+                                <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                                    style="border-width:2px ;">View coach</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="justify-content-md-start mx-5 row gap-4  justify-content-between">
+                        {{#each legsLevel_2}}
+                        <div class="card col-3 p-2" style="width: 21rem;">
+                            <a style="text-decoration: none;color:black;font-weight:bold"
+                                href="/video/{{this.videoId}}">
+                                <img src="{{this.image}}" class="card-img-top" alt="image">
+                            </a>
+                            <div class="card-body">
+                                <a style="text-decoration: none;color:black;font-weight:bold"
+                                    href="/video/{{this.videoId}}">
+                                    <p class="card-text">{{this.title}}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

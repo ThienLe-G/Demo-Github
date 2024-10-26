@@ -1,0 +1,85 @@
+<h3 class="spanVideo text-white"><b>OUR EXERCISE</b></h3>
+
+<div class="container">
+    <div class="intro_video text-center d-f lex flex-column align-items-center py-4 pt-5">
+        <h3 style="color:$red;">RECOMMENDED EXERCISES FOR YOU</h3>
+        <p style="font-size: 16px; font-weight: 500;">BUILD YOUR BODY WITH<br>OUR EXERCISE</p>
+    </div>
+
+    <div>
+        <div class="row pb-lg-3">
+            <div class="col-lg-6 d-flex justify-content-lg-start">
+                <span class="border border-3 border-danger px-4 fw-bold rounded-0">{{type}}</span>
+            </div>
+            <div class="col-lg-6 d-flex justify-content-lg-end" style="padding-right: 14%;">
+                <form action="/videoCarousel" method="post">
+                    <input type="hidden" name="array" value='{{videoArrayJSON}}'>
+                    <button type="submit" class="btn btn-outline-danger w-100 fw-medium"
+                        style="border-width:2px ;">Watch</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                {{#each videosReturn}}
+                <div class="card mb-3 w-100">
+                    <a style="text-decoration: none;color:black;" href="/video/{{this.videoId}}">
+                        <div class="row g-0">
+                            <div class="col-lg-5">
+                                <img src="{{this.image}}" class="img-fluid rounded-2 m-3" alt="error">
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="card-body ms-2 mt-3 ms-3">
+                                    <h5 class="card-title fs-4 title">{{this.title}}</h5>
+                                    <p class="card-text fs-5 ps-3">Level: {{this.level}}</p>
+                                    <p class="card-text fs-5 ps-3 duration" data-duration="{{this.duration}}">Duration:
+                                        {{this.duration}}s</p>
+                                    <p class="card-text fs-5 ps-3">Rep : {{this.rep}}</p>
+                                    <p class="card-text fs-5 ps-3 calo" data-calo="{{this.caloriesAmount}}">Total
+                                        calories:
+                                        {{this.caloriesAmount}} calo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+            <div class="col-lg-4">
+                <div class="sticky-top pt-5">
+                    <div class="text-center">
+                        <h6 class="fs-4 font-weight-bold">Note</h6>
+                        <div class="row border-top border-dark w-50 m-auto">
+                            <div class="col-lg-6 d-flex justify-content-end">
+                                <i class="bi bi-clipboard-data text-danger fs-1"></i>
+                            </div>
+                            <div class="col-lg-6 d-flex justify-content-start">
+                                <p class="m-0 pt-1"><span id="lesson_viewcoach"></span> <br> <span
+                                        class="fw-bold">VIDEO</span></p>
+                            </div>
+                        </div>
+                        <div class="row border-top border-dark w-50 m-auto">
+                            <div class="col-lg-6 d-flex justify-content-end">
+                                <i class="bi bi-fire text-danger fs-1"></i>
+                            </div>
+                            <div class="col-lg-6 d-flex justify-content-start">
+                                <p class="m-0 pt-1"><span id="calo_viewcoach"></span> <br><span
+                                        class="fw-bold">CALO</span></p>
+                            </div>
+                        </div>
+                        <div class="row border-top border-dark w-50 m-auto">
+                            <div class="col-lg-6 d-flex justify-content-end">
+                                <i class="bi bi-stopwatch-fill text-danger fs-1"></i>
+                            </div>
+                            <div class="col-lg-6 d-flex justify-content-start">
+                                <p class="m-0 pt-1"><span id="time_viewcoach"></span> <br><span
+                                        class="fw-bold">TIME</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/viewcoach.js"></script>
